@@ -92,7 +92,8 @@ const Field = ({ field, foreignKeys, url, icon, isEditing, formField }) => (
           {isEditing
             ? (isTypeFK(formField.semantic_type.value) ||
                 (isTypeFK(field.semantic_type) &&
-                  formField.semantic_type.value === undefined)) && (
+                  formField.semantic_type.value === undefined)) &&
+              Object.values(foreignKeys).length > 0 && (
                 <Select
                   className={CS.mt1}
                   name={formField.fk_target_field_id.name}
